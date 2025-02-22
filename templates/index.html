@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goal Planner</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Goal Planner</h1>
+
+        <form method="POST" action="/">
+            <input type="text" name="goal" placeholder="Enter your goal" required>
+            <button type="submit">Add Goal</button>
+        </form>
+
+        <h2>Your Goals</h2>
+        <ul>
+            {% for goal in goals %}
+                <li class="{% if goal.completed %}completed{% endif %}">
+                    {{ goal.text }}
+                    <a href="{{ url_for('edit_goal', goal_index=loop.index0) }}">✏️ Edit</a>
+                    <a href="{{ url_for('delete_goal', goal_index=loop.index0) }}">❌ Delete</a>
+                    <a href="{{ url_for('complete_goal', goal_index=loop.index0) }}">✔️ Mark Complete</a>
+                </li>
+            {% else %}
+                <li>No goals added yet!</li>
+            {% endfor %}
+        </ul>
+
+        <a href="{{ url_for('completed_goals') }}">📋 View Completed Goals</a>
+        <a href="{{ url_for('clear_goals') }}">🗑 Clear All Goals</a>
+    </div>
+</body>
+</html>
