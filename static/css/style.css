@@ -1,24 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to right, #6a11cb, #2575fc);
     text-align: center;
+    margin: 0;
+    padding: 0;
 }
 
 .container {
     max-width: 500px;
-    margin: auto;
+    margin: 50px auto;
     padding: 20px;
     background: white;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease-in-out;
 }
 
-input, button {
-    padding: 10px;
-    margin: 5px;
+.container:hover {
+    transform: scale(1.02);
+}
+
+h1, h2 {
+    color: #333;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+input {
+    width: 90%;
+    padding: 12px;
+    border: 2px solid #2575fc;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+}
+
+input:focus {
+    border-color: #6a11cb;
+    box-shadow: 0 0 8px rgba(106, 17, 203, 0.5);
+}
+
+button {
+    padding: 12px;
+    border: none;
+    background: #2575fc;
+    color: white;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background: #6a11cb;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    background: #f8f9fa;
+    padding: 12px;
+    margin: 8px 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.2s ease-in-out;
+}
+
+li:hover {
+    transform: translateX(5px);
 }
 
 .completed {
     text-decoration: line-through;
     color: gray;
+    background: #d4edda;
+}
+
+a {
+    text-decoration: none;
+    font-size: 14px;
+    padding: 6px 10px;
+    border-radius: 5px;
+    color: white;
+    background: #28a745;
+    transition: background 0.3s ease;
+}
+
+a:hover {
+    background: #218838;
+}
+
+a[href*="delete_goal"] {
+    background: #dc3545;
+}
+
+a[href*="delete_goal"]:hover {
+    background: #c82333;
+}
+
+a[href*="edit_goal"] {
+    background: #ffc107;
+    color: black;
+}
+
+a[href*="edit_goal"]:hover {
+    background: #e0a800;
+}
+
+a[href*="complete_goal"] {
+    background: #17a2b8;
+}
+
+a[href*="complete_goal"]:hover {
+    background: #138496;
 }
